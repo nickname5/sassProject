@@ -47,6 +47,13 @@ $grey-text: rgb(119, 119, 119);
   .icon {
     display: none;
   }
+
+  // .section {
+  //   padding: {
+  //     left: 5%;
+  //     right: 5%;
+  //   }
+  // }
 }
 
 body {
@@ -193,7 +200,7 @@ body {
   width: 70px;
   height: 70px;
   border: solid 1px black;
-  border-radius: 38px;
+  border-radius: 50%;
   background-color: black;
   color: white;
   font-size: 35px;
@@ -213,4 +220,233 @@ body {
   margin-top: 10px;
   font-size: 1.2rem;
   color: $grey-text;
+}
+
+.section_grey {
+  background-color: rgb(240, 240, 240);
+}
+
+.header_center {
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+.section-text_center {
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.client {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  &:nth-of-type(1) {
+    margin-bottom: 40px;
+  }
+}
+
+%circle-portarait {
+  width: 220px;
+  height: 220px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+.client-img {
+  @extend %circle-portarait;
+  border: solid 1px transparent;
+}
+
+@for $i from 1 through 5 {
+  .person-img-#{$i} { background-image: url("img/#{$i}.jpeg"); }
+}
+
+.comment_left,
+.comment_right {
+  background-color: white;
+  position: relative;
+  width: calc(100% - 300px);
+  height: 175px;
+  box-sizing: border-box;
+  padding: 45px;
+  background: #FFFFFF;
+  border-radius: 6px;
+  border: rgb(220, 220, 220) solid 2px;
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    display: block;
+    width: 0;
+  }
+  &:after {
+    border-color: transparent #FFFFFF;
+    z-index: 1;
+    top: 70px;
+  }
+  &:before {
+    border-color: transparent rgb(220, 220, 220);
+    z-index: 0;
+    top: 69px;
+  }
+}
+
+.comment_right {
+  margin-left: 40px;
+  &:after {
+    border-width: 15px 20px 15px 0;
+    left: -20px;
+
+  }
+  &:before{
+    border-width: 16px 21px 16px 0;
+    left: -23px;
+  }
+}
+
+.comment_left {
+  margin-right: 40px;
+  &:after {
+    border-width: 15px 0 15px 20px;
+    right: -20px;
+
+  }
+  &:before{
+    border-width: 16px 0 16px 21px;
+    right: -23px;
+  }
+}
+
+.client__comment-text {
+  font-size: 1.4rem;
+  color: $grey-text;
+  margin: 0 0 10px;
+}
+
+.client__comment-name {
+  color: #7690c5;
+  font-size: 1.2rem;
+}
+
+.section_logos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 60px 15%;
+}
+
+.section_black {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  h1 {
+    color: white;
+    width: 100%;
+  }
+
+  .section-text {
+    width: 100%;
+    margin-bottom: 80px;
+  }
+}
+
+.section-text_bottom {
+  font-size: 1.2rem;
+  width: 70%;
+  text-align: center;
+  color: white;
+  margin: 50px auto 0;
+  line-height: 2rem;
+}
+
+.teammate {
+  width: 232px;
+  color: white;
+}
+
+.teammate-img {
+  @extend %circle-portarait;
+  border: solid 6px white;
+  margin-bottom: 20px;
+}
+
+.teammate-name,
+.teammate-spec {
+  font-size: 1.2rem;
+  width: 100%;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.teammate-name {
+  font-weight: bold;
+}
+
+.teammate-icon {
+  width: 40px;
+  height: 40px;
+  border: solid 3px white;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  line-height: 46px;
+  text-align: center;
+  display: inline-block;
+  margin: 20px 14px 0;
+  color: white;
+  &:hover {
+    color: black;
+  }
+  outline: 0!important;
+  -moz-outline-offset: -1px !important;
+  -moz-outline: 1px solid #000 !important;
+}
+
+%transition-icon {
+  transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+}
+
+.teammate-icon_sky:hover {
+  @extend %transition-icon;
+  border-color: #00aced;
+  background-color: #00aced;
+}
+
+.teammate-icon_blue:hover {
+  @extend %transition-icon;
+  border-color: #3b5998;
+  background-color: #3b5998;
+}
+
+.teammate-icon_red:hover {
+  @extend %transition-icon;
+  border-color: #cb2028;
+  background-color: #cb2028;
+}
+
+.footer {
+  background-color: #7690c5;
+  color: white;
+  display: flex;
+  flex-direction: row;
+
+  .section-text {
+    color: inherit;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+.footer__left,
+.footer__right {
+  width: 50%;
+}
+
+.footer_left {
+
 }
