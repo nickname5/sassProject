@@ -1,17 +1,59 @@
-$content-width: 960px;
-$wrap-width: 1400px;
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('fonts/BrandonGrotesque-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('fonts/BrandonGrotesque-Bold.ttf');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BrandonGrotesque';
+  src: url('fonts/BrandonGrotesque-Light.ttf');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cubano';
+  src: url('fonts/Cubano-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+$grey-text: rgb(119, 119, 119);
 
 %sect {
   max-width: 1400px;
   width: 100%;
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 0 15%;
+}
+
+%icon {
+  color: #e0e0e0;
+  font-size: 200px;
+  height: 240px;
+  display: block;
+  margin: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .icon {
+    display: none;
+  }
 }
 
 body {
   width: 100%;
   margin: 0;
+  font-size: 12px;
+  font-family: "BrandonGrotesque", sans-serif;
 }
 
 .header {
@@ -19,99 +61,156 @@ body {
   background-image: url("img/background.jpg");
   background-position: top;
   background-size: cover;
-  height: 620px;
+  /*height: 620px;*/
   color: white;
+  padding: 50px 15% 120px;
 }
 
-.Title {
-  font-size: 60px;
-  font-family: "BrandonGrotesque";
-  color: rgb(34, 34, 34);
-  line-height: 1.25;
-  text-align: left;
-  position: absolute;
-  left: 269.937px;
-  top: 780.218px;
-  z-index: 172;
+.logo {
+  font: {
+    family: "Cubano", sans-serif;
+    size: 1.3rem;
+    weight: normal;
+  }
 }
 
-.Description {
-  font-size: 18px;
-  font-family: "BrandonGrotesque";
-  color: rgb(119, 119, 119);
-  line-height: 1.333;
-  text-align: left;
-  position: absolute;
-  left: 269.844px;
-  top: 837.89px;
-  width: 555px;
-  height: 148px;
-  z-index: 171;
+.header__top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.Can_you_build_the_website_of_my_dreams_ {
-  font-size: 32px;
-  font-family: "BrandonGrotesque";
-  color: rgb(255, 255, 255);
-  line-height: 1.2;
+.header__nav {
+  display: inline-block;
+}
+
+.header__nav-list {
+  list-style: none;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.header__nav-listItem {
+  display: inline-block;
+  font-size: 1rem;
+  margin-left: 30px;
+}
+
+.header-header_first {
+  font-size: 2rem;
+  font-weight: 200;
+  margin-top: 140px;
   text-align: center;
-  position: absolute;
-  left: 460.908px;
-  top: 218.954px;
-  z-index: 184;
 }
 
-.Yup__we_can_do_that_ {
-  font-size: 66px;
-  font-family: "BrandonGrotesque";
-  color: rgb(255, 255, 255);
-  font-weight: bold;
+.header-header_second {
+  font-size: 4rem;
+  font-weight: 800;
   text-transform: uppercase;
-  line-height: 1.2;
+  margin-top: 50px;
   text-align: center;
-  position: absolute;
-  left: 355.96px;
-  top: 282.885px;
-  z-index: 183;
 }
 
-.Learn_More {
-  font-size: 23px;
-  font-family: "BrandonGrotesque";
-  color: rgb(255, 255, 255);
+.header-button {
+  display: block;
+  margin: 80px auto 0;
+  font-size: 1.6rem;
+  height: 60px;
+  width: 240px;
+  border: solid 2px white;
+  border-radius: 3px;
+  line-height: 60px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out 0.05s;
+  color: inherit;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 1);
+  }
+}
+
+.section {
+  @extend %sect;
+  padding: 100px 15%;
+}
+
+.section__title {
+  margin: 10px 0 0;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.section-text {
+  font-size: 1.2rem;
+  color: $grey-text;
+}
+
+.title-bold {
+  font-weight: 800;
+}
+
+.title-thin {
+  font-weight: 200;
+}
+
+.section-icon_left,
+.section-icon_right {
+  @extend %icon;
+}
+
+.section-icon_left {
+  float: left;
+  margin-right: 60px;
+}
+
+.section-icon_right {
+  float: right;
+  margin-left: 60px;
+}
+
+.section_flexWrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.item {
+  width: 50%;
+  &:nth-of-type(n+3) {
+    margin-top: 30px;
+  }
+}
+
+.item-icon {
+  width: 70px;
+  height: 70px;
+  border: solid 1px black;
+  border-radius: 38px;
+  background-color: black;
+  color: white;
+  font-size: 35px;
+  line-height: 72px;
+  text-align: center;
+  float: left;
+  margin: 0 20px 30px 0;
+}
+
+.item__text-title {
+  font-size: 1.4rem;
+  margin: 0;
   font-weight: bold;
-  line-height: 1.2;
-  text-align: center;
-  position: absolute;
-  left: 646.938px;
-  top: 446.2px;
-  z-index: 181;
 }
 
-.Escape {
-  font-size: 25px;
-  font-family: "Cubano";
-  color: rgb(70, 70, 70);
-  text-transform: uppercase;
-  line-height: 0.76;
-  text-align: center;
-  -moz-transform: matrix( 0.99346808019228,0,0,0.99346808019228,0,0);
-  -webkit-transform: matrix( 0.99346808019228,0,0,0.99346808019228,0,0);
-  -ms-transform: matrix( 0.99346808019228,0,0,0.99346808019228,0,0);
-  position: absolute;
-  left: 275.689px;
-  top: 48px;
-  z-index: 195;
-}
-
-.menuitemitem {
-  font-size: 18px;
-  font-family: "BrandonGrotesque";
-  color: rgb(255, 255, 255);
-  line-height: 2.278;
-  text-align: center;
-  position: absolute;
-  left: 803.843px;
-  top: 38.498px;
-  z-index: 192;
+.item__text-descr {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: $grey-text;
 }
